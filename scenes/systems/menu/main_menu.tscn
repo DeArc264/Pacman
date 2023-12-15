@@ -1,0 +1,146 @@
+[gd_scene load_steps=23 format=3 uid="uid://dtok00iw4fpmf"]
+
+[ext_resource type="Script" path="res://scenes/systems/menu/main_menu.gd" id="1_6b644"]
+[ext_resource type="Texture2D" uid="uid://cu72hytvs5ju6" path="res://assets/tilemaps/spritesheet.png" id="2_oka1x"]
+[ext_resource type="FontFile" uid="uid://cilt24tf7xu7s" path="res://assets/fonts/upheavtt.ttf" id="3_1p7d5"]
+[ext_resource type="Texture2D" uid="uid://cfwp0p0shrf3n" path="res://assets/buttons/pacmanButton1_Normal.png" id="4_yuh6q"]
+[ext_resource type="Texture2D" uid="uid://dg2yqvamrl0j" path="res://assets/buttons/pacmanButton1_Pressed.png" id="5_1qneh"]
+[ext_resource type="Texture2D" uid="uid://cr1j33xt2va6v" path="res://assets/buttons/pacmanButton1_Hovered.png" id="6_kd8la"]
+[ext_resource type="Texture2D" uid="uid://b7oplg33w6fnx" path="res://assets/buttons/pacmanButton2_Normal.png" id="7_h6ung"]
+[ext_resource type="Texture2D" uid="uid://cg500ni0bxjaj" path="res://assets/buttons/pacmanButton2_Pressed.png" id="8_f5wm1"]
+[ext_resource type="Texture2D" uid="uid://bj8jm17baaew5" path="res://assets/buttons/pacmanButton2_Hovered.png" id="9_6oram"]
+[ext_resource type="Texture2D" uid="uid://d3i67wa0q87tc" path="res://assets/buttons/pacmanButton3_Normal.png" id="10_bloyq"]
+[ext_resource type="Texture2D" uid="uid://bgbk28nbhs38e" path="res://assets/buttons/pacmanButton3_Pressed.png" id="11_xfgbd"]
+[ext_resource type="Texture2D" uid="uid://ecaq20uix1i6" path="res://assets/buttons/pacmanButton3_Hovered.png" id="12_24ra4"]
+[ext_resource type="Texture2D" uid="uid://y1cvgukobnm8" path="res://assets/buttons/pacmanButtonExit_Normal.png" id="13_jxf55"]
+[ext_resource type="Texture2D" uid="uid://cvxb7t38xytm2" path="res://assets/buttons/pacmanButtonExit_Pressed.png" id="14_lal7f"]
+[ext_resource type="Texture2D" uid="uid://c0vw6sq7thfic" path="res://assets/buttons/pacmanButtonExit_Hovered.png" id="15_j8ltw"]
+[ext_resource type="AudioStream" uid="uid://b272kh8eepr5t" path="res://assets/sounds/pacman_waka_waka.wav" id="16_vjx5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb3l2"]
+atlas = ExtResource("2_oka1x")
+region = Rect2(85, 106, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7ne5"]
+atlas = ExtResource("2_oka1x")
+region = Rect2(106, 106, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qyov"]
+atlas = ExtResource("2_oka1x")
+region = Rect2(127, 106, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wegun"]
+atlas = ExtResource("2_oka1x")
+region = Rect2(148, 106, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxcuo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb3l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7ne5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qyov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wegun")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2mmdr"]
+font = ExtResource("3_1p7d5")
+font_size = 100
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6b644")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(274, 179)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_jxcuo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.5
+offset_top = -186.5
+offset_right = 237.5
+offset_bottom = -93.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAC   MAN"
+label_settings = SubResource("LabelSettings_2mmdr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -198.0
+offset_right = 155.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Level1" type="TextureButton" parent="VBoxContainer"]
+texture_filter = 1
+clip_contents = true
+layout_mode = 2
+texture_normal = ExtResource("4_yuh6q")
+texture_pressed = ExtResource("5_1qneh")
+texture_hover = ExtResource("6_kd8la")
+stretch_mode = 3
+
+[node name="Level2" type="TextureButton" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("7_h6ung")
+texture_pressed = ExtResource("8_f5wm1")
+texture_hover = ExtResource("9_6oram")
+stretch_mode = 3
+
+[node name="Level3" type="TextureButton" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_bloyq")
+texture_pressed = ExtResource("11_xfgbd")
+texture_hover = ExtResource("12_24ra4")
+stretch_mode = 3
+
+[node name="Exit" type="TextureButton" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("13_jxf55")
+texture_pressed = ExtResource("14_lal7f")
+texture_hover = ExtResource("15_j8ltw")
+stretch_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_vjx5a")
+
+[connection signal="pressed" from="VBoxContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

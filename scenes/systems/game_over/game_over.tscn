@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfyyvvwp4xnae"]
+
+[ext_resource type="FontFile" uid="uid://cilt24tf7xu7s" path="res://assets/fonts/upheavtt.ttf" id="1_7beas"]
+[ext_resource type="Script" path="res://scenes/systems/game_over/game_over.gd" id="1_k8mbn"]
+[ext_resource type="Texture2D" uid="uid://cu72hytvs5ju6" path="res://assets/tilemaps/spritesheet.png" id="2_polk2"]
+[ext_resource type="Texture2D" uid="uid://dcnjqct7whoi8" path="res://assets/buttons/pacmanMenu_Normal.png" id="3_fjvmd"]
+[ext_resource type="Texture2D" uid="uid://dcq5yyk27h144" path="res://assets/buttons/pacmanMenu_Pressed.png" id="4_vsjfx"]
+[ext_resource type="Texture2D" uid="uid://ywhkv8rwf6kg" path="res://assets/buttons/pacmanMenu_Hovered.png" id="5_5nhau"]
+[ext_resource type="Texture2D" uid="uid://y1cvgukobnm8" path="res://assets/buttons/pacmanButtonExit_Normal.png" id="6_mvacu"]
+[ext_resource type="Texture2D" uid="uid://cvxb7t38xytm2" path="res://assets/buttons/pacmanButtonExit_Pressed.png" id="7_83j8u"]
+[ext_resource type="Texture2D" uid="uid://c0vw6sq7thfic" path="res://assets/buttons/pacmanButtonExit_Hovered.png" id="8_rsbyo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e8lrm"]
+font = ExtResource("1_7beas")
+font_size = 100
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlvdx"]
+atlas = ExtResource("2_polk2")
+region = Rect2(107, 66, 17, 17)
+
+[node name="Game Over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k8mbn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 372.0
+grow_horizontal = 2
+text = "GAME
+
+
+OVER"
+label_settings = SubResource("LabelSettings_e8lrm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(280, 190)
+rotation = 1.5708
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_hlvdx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -58.0
+offset_right = -6.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Menu" type="TextureButton" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("3_fjvmd")
+texture_pressed = ExtResource("4_vsjfx")
+texture_hover = ExtResource("5_5nhau")
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Exit" type="TextureButton" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("6_mvacu")
+texture_pressed = ExtResource("7_83j8u")
+texture_hover = ExtResource("8_rsbyo")
+
+[connection signal="pressed" from="HBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]

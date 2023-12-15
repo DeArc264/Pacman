@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://b75tl0f4sngdc"]
+
+[ext_resource type="Script" path="res://scenes/systems/HUD/hud.gd" id="1_7df1d"]
+[ext_resource type="Texture2D" uid="uid://cu72hytvs5ju6" path="res://assets/tilemaps/spritesheet.png" id="2_q2o6v"]
+[ext_resource type="FontFile" uid="uid://cilt24tf7xu7s" path="res://assets/fonts/upheavtt.ttf" id="3_h7r8s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwgnc"]
+atlas = ExtResource("2_q2o6v")
+region = Rect2(128, 107, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soqm0"]
+atlas = ExtResource("2_q2o6v")
+region = Rect2(128, 107, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnxgi"]
+atlas = ExtResource("2_q2o6v")
+region = Rect2(128, 107, 17, 18)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vl2a8"]
+font = ExtResource("3_h7r8s")
+font_size = 20
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_7df1d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Life" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_cwgnc")
+stretch_mode = 2
+
+[node name="Life2" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_soqm0")
+stretch_mode = 2
+
+[node name="Life3" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_fnxgi")
+stretch_mode = 2
+
+[node name="Score" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_vl2a8")
+horizontal_alignment = 2
+vertical_alignment = 1
